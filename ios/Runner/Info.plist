@@ -20,6 +20,10 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Pulse Meter needs speech recognition to transcribe your sessions.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Pulse Meter uses the microphone to listen during a session.</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
