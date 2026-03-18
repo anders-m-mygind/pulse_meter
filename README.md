@@ -1,16 +1,42 @@
 # pulse_meter
 
-A new Flutter project.
+Flutter app for capturing meeting notes and sending transcript data to a backend.
 
-## Getting Started
+## Local Backend
 
-This project is a starting point for a Flutter application.
+Start the backend server from the repo root:
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+dart run backend/server.dart
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+By default it listens on `http://0.0.0.0:8080`.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Endpoints:
+- `GET /health`
+- `POST /v1/meeting-notes/process`
+
+## Point The App To Backend
+
+The app reads the backend endpoint from:
+- `MEETING_PROCESS_ENDPOINT` (`--dart-define`)
+
+If not provided, it defaults to:
+- `http://127.0.0.1:8080/v1/meeting-notes/process`
+
+### Simulator
+
+```bash
+flutter run --dart-define=MEETING_PROCESS_ENDPOINT=http://127.0.0.1:8080/v1/meeting-notes/process
+```
+
+### Physical iPhone
+
+1. Find your Mac LAN IP (example):
+```bash
+ipconfig getifaddr en0
+```
+2. Run Flutter with that IP:
+```bash
+flutter run --dart-define=MEETING_PROCESS_ENDPOINT=http://<YOUR_MAC_LAN_IP>:8080/v1/meeting-notes/process
+```

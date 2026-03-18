@@ -24,6 +24,21 @@
 	<string>Pulse Meter needs speech recognition to transcribe your sessions.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Pulse Meter uses the microphone to listen during a session.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Pulse Meter uses the camera to capture whiteboard snapshots during meetings.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Pulse Meter connects to your local backend to process meeting notes.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_dartobservatory._tcp</string>
+		<string>_dartVmService._tcp</string>
+		<string>_fluttervmservice._tcp</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
