@@ -1851,24 +1851,30 @@ class _PulseHomeState extends State<PulseHome> with WidgetsBindingObserver {
             ],
             const SizedBox(height: 10),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _statusChip(
-                  'Sent: ${session.isSent ? 'Yes' : 'No'}',
-                  session.isSent,
-                  color: Colors.green,
+                Expanded(
+                  child: Wrap(
+                    spacing: 8,
+                    runSpacing: 6,
+                    children: [
+                      _statusChip(
+                        'Sent: ${session.isSent ? 'Yes' : 'No'}',
+                        session.isSent,
+                        color: Colors.green,
+                      ),
+                      _statusChip(
+                        'Processed: ${session.isProcessed ? 'Yes' : 'No'}',
+                        session.isProcessed,
+                        color: Colors.blueGrey,
+                      ),
+                      if (session.processingState ==
+                          MeetingProcessingState.failed)
+                        _statusChip('Failed', false, color: Colors.red),
+                    ],
+                  ),
                 ),
                 const SizedBox(width: 8),
-                _statusChip(
-                  'Processed: ${session.isProcessed ? 'Yes' : 'No'}',
-                  session.isProcessed,
-                  color: Colors.blueGrey,
-                ),
-                if (session.processingState ==
-                    MeetingProcessingState.failed) ...[
-                  const SizedBox(width: 8),
-                  _statusChip('Failed', false, color: Colors.red),
-                ],
-                const Spacer(),
                 Text(
                   '${session.timestamp.month}/${session.timestamp.day}/${session.timestamp.year}',
                   style: const TextStyle(color: Colors.black45, fontSize: 12),
